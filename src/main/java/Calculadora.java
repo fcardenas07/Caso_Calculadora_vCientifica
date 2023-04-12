@@ -32,8 +32,16 @@ public class Calculadora {
         return Math.pow(numero1, numero2);
     }
 
+    public static String calcularEcuacionRecta(double[] x1, double[] x2) {
+        double m = (x1[1] - x2[1]) / (x1[0] - x2[0]);
+        if (m != 0) {
+            return "y = " + m + "x + " + (x1[1] - m * x1[0]);
+        } else {
+            return "y = " + x1[1];
+        }
+    }
+
     public static double porcentaje(double numero, double porcentaje) {
         return (porcentaje * numero) / 100;
     }
-
 }
