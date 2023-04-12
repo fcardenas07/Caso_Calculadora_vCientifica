@@ -1,7 +1,5 @@
 public class Calculadora {
     public static void main(String[] args) {
-        int pendiente = 2;
-        System.out.println("y = %sconstante".formatted(pendiente==0 ? "": pendiente + "x + "));
     }
 
     public static int sumar(int numero1, int numero2) {
@@ -32,6 +30,10 @@ public class Calculadora {
         return Math.pow(numero1, numero2);
     }
 
+    public static double porcentaje(double numero, double porcentaje) {
+        return (porcentaje * numero) / 100;
+    }
+
     public static String calcularEcuacionRecta(double[] x1, double[] x2) {
         double m = (x1[1] - x2[1]) / (x1[0] - x2[0]);
         if (m != 0) {
@@ -39,9 +41,5 @@ public class Calculadora {
         } else {
             return "y = " + x1[1];
         }
-    }
-
-    public static double porcentaje(double numero, double porcentaje) {
-        return (porcentaje * numero) / 100;
     }
 }
