@@ -100,4 +100,11 @@ class CalculadoraTest {
         assertEquals("y = 5.0", Calculadora.calcularEcuacionRecta(x1,x2));
     }
 
+    @Test
+    void puntosEnElMismoXDeberiaRetornarPuntosInvalidos(){
+        double[] x1 = {2, 5};
+        double[] x2 = {2, 1};
+        assertEquals("Puntos inválidos.",Calculadora.calcularEcuacionRecta(x1,x2));
+    }
+
 }
