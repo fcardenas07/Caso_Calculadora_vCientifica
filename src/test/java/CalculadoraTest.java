@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -84,11 +86,24 @@ class CalculadoraTest {
         assertEquals(0, Calculadora.menor(0, 0));
     }
 
-    @Test
-    void elevarNumero() {
+    @ParameterizedTest
+    @ValueSource(doubles = {Integer.MAX_VALUE, Integer.MIN_VALUE, 1})
+    void numeroElevadoACeroEsUnoExceptoCero(double numero) {
+        assertEquals(1, Calculadora.elevarNumero(numero, 0));
     }
 
     @Test
-    void porcentaje() {
+    void numeroElevadoAExponenteNegativo() {
+        assertEquals(0.5, Calculadora.elevarNumero(2, -1));
+    }
+
+    @Test
+    void cualquierPorcentajeDeCeroEsCero() {
+        assertEquals(0, Calculadora.porcentaje(0, 50));
+    }
+
+    @Test
+    void porcentajeDeUnNumeroNegativoDebeSerNegativo() {
+        assertEquals(-5, Calculadora.porcentaje(-10, 50));
     }
 }
