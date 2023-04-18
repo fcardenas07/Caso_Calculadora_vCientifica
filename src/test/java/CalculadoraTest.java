@@ -55,6 +55,11 @@ class CalculadoraTest {
     }
 
     @Test
+    void divisionPorCeroArrojaExcepcion() {
+        assertEquals(Double.POSITIVE_INFINITY, Calculadora.dividir(1, 0));
+    }
+
+    @Test
     void UnoEsMayorQueCero() {
         assertEquals(1, Calculadora.mayor(1, 0));
     }

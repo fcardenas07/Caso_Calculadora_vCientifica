@@ -1,9 +1,4 @@
 public class Calculadora {
-    public static void main(String[] args) {
-        int pendiente = 2;
-        System.out.println("y = %sconstante".formatted(pendiente==0 ? "": pendiente + "x + "));
-    }
-
     public static int sumar(int numero1, int numero2) {
         return numero1 + numero2;
     }
@@ -17,7 +12,7 @@ public class Calculadora {
     }
 
     public static double dividir(double numero1, double numero2) {
-        return numero1 / numero2;
+        return (float) numero1 / numero2;
     }
 
     public static int mayor(int numero1, int numero2) {
