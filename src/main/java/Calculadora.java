@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Calculadora {
     public static void main(String[] args) {
-        double[][] nros = solicitarNumeros();
-        System.out.println(calcularEcuacionRecta(nros[0],nros[1]));
     }
 
     public static double[] ingresarNumeros(){
