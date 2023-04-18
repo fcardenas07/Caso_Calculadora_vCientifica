@@ -1,4 +1,8 @@
 public class Calculadora {
+    public static void main(String[] args) {
+        System.out.println(Math.pow(2, -1));
+    }
+
     public static double sumar(double numero1, double numero2) {
         return numero1 + numero2;
     }
@@ -23,8 +27,8 @@ public class Calculadora {
         return Math.min(numero1, numero2);
     }
 
-    public static double elevarNumero(double numero1, double numero2) {
-        return Math.pow(numero1, numero2);
+    public static double elevarNumero(double numero, double potencia) {
+        return Math.pow(numero, potencia);
     }
 
     public static double porcentaje(double numero, double porcentaje) {
