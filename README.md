@@ -27,3 +27,6 @@ Dx + Ey = F
 
 5- calcular la ecuación de una recta de la forma: Y = mX + b, dados 2 puntos de la recta (x1,y1) (x2,y2)
 
+***Jesus:***
+
+3- calcular perímetros, áreas y volúmenes según corresponda de las siguientes figuras geométricas: cuadrado, rectángulo, círculo, esfera, cubo y cono
