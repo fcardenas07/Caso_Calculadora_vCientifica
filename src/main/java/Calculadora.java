@@ -2,30 +2,30 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Calculadora {
-    public static void main(String[] args) {
-    }
-
-    public static double[] ingresarNumeros() {
-        Scanner sc = new Scanner(System.in);
-        double x = 0, y = 0;
+    public static double ingresarDouble() {
+        Scanner teclado = new Scanner(System.in);
         try {
-            System.out.println("Ingresa la coordenada X del punto:");
-            x = sc.nextDouble();
-            sc.nextLine();
-            System.out.println("Ingresa la coordenada Y del punto:");
-            y = sc.nextDouble();
-            sc.nextLine();
+            return teclado.nextDouble();
         } catch (InputMismatchException ime) {
-            System.out.println("La entrada no es un número.");
-            ingresarNumeros();
+            System.out.println("La entrada no es un número, vuelva a intentarlo");
+            return ingresarDouble();
         }
-        return new double[]{x, y};
     }
 
     public static double[][] solicitarNumeros() {
-        double[] n1 = ingresarNumeros();
-        double[] n2 = ingresarNumeros();
+        double[] n1 = ingresarPunto();
+        double[] n2 = ingresarPunto();
         return new double[][]{n1, n2};
+    }
+
+    private static double[] ingresarPunto() {
+        System.out.println("Ingresa la coordenada X del punto:");
+        double x = ingresarDouble();
+
+        System.out.println("Ingresa la coordenada Y del punto:");
+        double y = ingresarDouble();
+
+        return new double[]{x, y};
     }
 
     public static double sumar(double numero1, double numero2) {
@@ -66,15 +66,15 @@ public class Calculadora {
         return (porcentaje * numero) / 100;
     }
 
-    public static String calcularEcuacionRecta(double[] x1, double[] x2) {
-        if (x1[0] == x2[0]) {
+    public static String calcularEcuacionRecta(double[] punto1, double[] punto2) {
+        if (punto1[0] == punto2[0]) {
             return "Puntos inválidos.";
         }
-        double m = (x1[1] - x2[1]) / (x1[0] - x2[0]);
-        if (m != 0) {
-            return "y = " + m + "x + " + (x1[1] - m * x1[0]);
+        double pendiente = (punto2[1] - punto1[1]) / (punto2[0] - punto1[0]);
+        if (pendiente != 0) {
+            return "y = " + pendiente + "x + " + (punto1[1] - pendiente * punto1[0]);
         } else {
-            return "y = " + x1[1];
+            return "y = " + punto1[1];
         }
     }
 }
