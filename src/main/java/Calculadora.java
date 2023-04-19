@@ -1,8 +1,4 @@
 public class Calculadora {
-    public static void main(String[] args) {
-        System.out.println(Calculadora.elevarNumero(0, 0));
-    }
-
     public static double sumar(double numero1, double numero2) {
         return numero1 + numero2;
     }
