@@ -1,6 +1,6 @@
 public class Calculadora {
     public static void main(String[] args) {
-        System.out.println(Math.pow(2, -1));
+        System.out.println(Calculadora.elevarNumero(0, 0));
     }
 
     public static double sumar(double numero1, double numero2) {
@@ -15,8 +15,11 @@ public class Calculadora {
         return numero1 * numero2;
     }
 
-    public static double dividir(double numero1, double numero2) {
-        return numero1 / numero2;
+    public static double dividir(double dividendo, double divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("/ por cero: Indeterminado");
+        }
+        return dividendo / divisor;
     }
 
     public static double mayor(double numero1, double numero2) {
@@ -28,6 +31,9 @@ public class Calculadora {
     }
 
     public static double elevarNumero(double numero, double potencia) {
+        if (numero == 0 && potencia == 0) {
+            throw new ArithmeticException("0 elevado a 0: Indeterminado");
+        }
         return Math.pow(numero, potencia);
     }
 
