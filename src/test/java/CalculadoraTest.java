@@ -53,12 +53,15 @@ class CalculadoraTest {
 
     @Test
     void ceroDivididoPorCualquierNumeroEsCero() {
-        assertEquals(0.0, Calculadora.dividir(0, 1));
+        assertEquals(0, Calculadora.dividir(0, 1));
     }
 
     @Test
     void divisionPorCeroArrojaExcepcion() {
-        assertEquals(Double.POSITIVE_INFINITY, Calculadora.dividir(1, 0));
+        ArithmeticException arithmeticException = assertThrows(ArithmeticException.class,
+                () -> Calculadora.dividir(1, 0));
+
+        assertEquals("/ por cero: Indeterminado", arithmeticException.getMessage());
     }
 
     @Test
@@ -95,6 +98,14 @@ class CalculadoraTest {
     @Test
     void numeroElevadoAExponenteNegativo() {
         assertEquals(0.5, Calculadora.elevarNumero(2, -1));
+    }
+
+    @Test
+    void ceroElevadoACeroEsIndeterminado() {
+        ArithmeticException arithmeticException = assertThrows(ArithmeticException.class,
+                () -> Calculadora.elevarNumero(0, 0));
+
+        assertEquals("0 elevado a 0: Indeterminado", arithmeticException.getMessage());
     }
 
     @Test
